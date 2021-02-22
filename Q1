@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		ArrayList<String> alf = new ArrayList<String>();
+		ArrayList<String> decodificada = new ArrayList<String>();
+		
+		alf.add("a");
+		alf.add("b");
+		alf.add("c");
+		alf.add("d");
+		alf.add("e");
+		alf.add("f");
+		alf.add("g");
+		alf.add("h");
+		alf.add("i");
+		alf.add("j");
+		alf.add("k");
+		alf.add("l");
+		alf.add("m");
+		alf.add("n");
+		alf.add("o");
+		alf.add("p");
+		alf.add("q");
+		alf.add("r");
+		alf.add("s");
+		alf.add("t");
+		alf.add("u");
+		alf.add("v");
+		alf.add("w");
+		alf.add("x");
+		alf.add("y");
+		alf.add("z");
+		
+		System.out.println("Digite seu código:");
+		String cod = sc.nextLine().toLowerCase();
+		System.out.println("Quantas casas você deseja andar?");
+		int n = sc.nextInt();
+
+		if (n > 25) {
+			int a = n / 26;
+			for (int i = 0; i < a; i++) {
+				for (int j = 0; j < 26; j++) {
+					alf.add(alf.get(j));
+				}
+			}
+		}
+
+		for (int k = 0; k < cod.length(); k++) {
+			String letra = cod.substring(k, k + 1);
+			int indice = alfindexOf(letra);
+			decodificada.add(alf.get(indice + n));
+		}
+		System.out.println(decodificada);
+
+	}
+}
